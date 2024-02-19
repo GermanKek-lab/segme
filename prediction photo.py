@@ -16,7 +16,6 @@ directory = input()
 files = []
 files += os.listdir(directory)
 files.sort()
-print(files)
 
 images_prediction = []
 lesions_prediction = []
@@ -48,13 +47,4 @@ for i in data_tr_prediction:
     plt.figure(figsize=(6, 6))
     i = i.to('cpu')
     for k in range(len(X_prediction)):
-        plt.subplot(3, 3, k+1)
-        plt.imshow(np.rollaxis(i[k].numpy(), 0, 3), cmap='gray')
-        plt.title('Real')
-        plt.axis('off')
-
-        plt.subplot(3, 3, k+4)
-        plt.imshow(y_pred_prediction[k, 0], cmap='gray')
         save_image(y_pred_prediction[k, 0].float(), f"output/Tets{k + 1}.png")
-        plt.title('Output')
-        plt.axis('off')
