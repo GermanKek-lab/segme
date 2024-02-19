@@ -10,7 +10,7 @@ from SegNet import SegNet
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = torch.load('model_segmentation', map_location=device)
+model = torch.load('model_segmentation(400)', map_location=device)
 
 directory = input()
 files = []
